@@ -1,5 +1,4 @@
 import sys
-from pprint import pprint
 
 # Sample default board data to use as input (csv format required)
 SAMPLE = "420070805,070105602,061090004,904002051,050301069,610009000,802000000,090824500,040906020"
@@ -36,7 +35,13 @@ def make_board(raw):
             sys.exit(1)
     # If all successful -> display starting board
     print("\nStarting board:")
-    pprint(sudoku)
+    display_board(sudoku)
+
+
+def display_board(board):
+    # Print each row of the board
+    for row in board:
+        print(row)
 
 
 def check(n, row, col):
@@ -103,7 +108,7 @@ solved = solve()
 # Display results
 if solved:
     print("\nFound a solution:")
-    pprint(sudoku)
+    display_board(sudoku)
     print()
 else:
     print("\nCould not find a solution")
